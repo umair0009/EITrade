@@ -8,7 +8,7 @@ import description from "../../assets/images/description.png"
 import "./ProductType.scss";
 import { Link } from "react-router-dom";
 
-const ProductType = () => {
+const ProductType = ({getImportType}) => {
   const colorCode = "#1686F6";
 
   return (
@@ -19,31 +19,37 @@ const ProductType = () => {
 
         <h4>Select Import Type</h4>
           <div className="inner">
-            <Link to="/import/select-product">
-              <div className="img_blk">
+            {/*<Link to="/import/select-product">*/}
+              <div onClick={()=>{
+                getImportType('IOP')
+              }} className="img_blk">
                 <img src={product} alt="product" />
               </div>
               <p className="product_img">
                 Image of Product
               </p>
-            </Link>
+            {/*</Link>*/}
             <a>
-            <div className="img_blk">
+            <div onClick={()=>{
+                getImportType('HC')
+            }} className="img_blk">
                 <img src={hscode} alt="product" />
               </div>
               <p className="product_img">
               HS Code
               </p>
-             
+
             </a>
             <a>
-            <div className="img_blk">
+            <div onClick={()=>{
+                getImportType('DES')
+            }}  className="img_blk">
                 <img src={description} alt="product" />
               </div>
               <p className="product_img">
               Description of Product
               </p>
-            
+
             </a>
           </div>
           <div className="bottom">

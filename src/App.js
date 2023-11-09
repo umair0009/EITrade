@@ -20,6 +20,7 @@ import ShippingType from "./components/NotHaveShippingCost/ShippingType/Shipping
 import TypeOfPacking from "./components/NotHaveShippingCost/ByAir/TypeOfPacking/TypeOfPacking";
 import CartonDetails from "./components/NotHaveShippingCost/ByAir/CartonDetails/CartonDetails";
 import TypeOfCargo from "./components/NotHaveShippingCost/BySea/TypeOfCargo/TypeOfCargo";
+import Import from "./Pages/Import/Import";
 
 function App() {
   return (
@@ -29,7 +30,8 @@ function App() {
           path="/"
           element={
             <Layout>
-              <Home />
+                <Import/>
+              {/*<Home />*/}
             </Layout>
           }
         />

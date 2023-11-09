@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./ImportThrough.scss";
 
-const ImportThrough = () => {
+const ImportThrough = ({getSelection}) => {
   const colorCode = "#1686F6";
 
   return (
@@ -13,21 +13,31 @@ const ImportThrough = () => {
         <div className="site_container">
           <h4>Select Action Type</h4>
           <div className="inner">
-            <Link to="/import/product-type">
-              <button type="button" className="import_cost">
+            {/*<Link to="/import/product-type">*/}
+              <button onClick={()=>{
+                getSelection('COI')
+              }} type="button" className="import_cost">
                 Cost of Import
               </button>
-            </Link>
-            <button type="button" className="import_cost">
+            {/*</Link>*/}
+            <button onClick={()=>{
+              getSelection('D')
+            }} type="button" className="import_cost">
               Documents
             </button>
-            <button type="button" className="import_cost">
+            <button onClick={()=>{
+              getSelection('LE')
+            }} type="button" className="import_cost">
               Libre Exchange
             </button>
-            <button type="button" className="import_cost">
+            <button onClick={()=>{
+              getSelection('HC')
+            }} type="button" className="import_cost">
               HS Code
             </button>
-            <button type="button" className="import_cost">
+            <button onClick={()=>{
+              getSelection('CCT')
+            }} type="button" className="import_cost">
               Custom Clearance Tax
             </button>
           </div>
