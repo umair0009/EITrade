@@ -1,0 +1,161 @@
+@import "../../../../Styles/variables/variables.scss";
+
+#TypeOfPacking{
+    
+    .inner{
+        h2{
+            color: $black;
+            font-size: 3.2rem;
+            margin-bottom: 3rem;
+        }
+
+        .label_blk{
+            margin-bottom: 2.5rem;
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 0 .5rem;
+
+            h5{
+                color: $black;
+                font-size: 1.8rem;
+                margin-bottom: 0;
+            }
+        }
+
+        .containers {
+            display: block;
+            position: relative;
+            padding-left: 35px;
+            // margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 22px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* Hide the browser's default checkbox */
+        .containers input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        /* Create a custom checkbox */
+        .checkmark {
+            position: absolute;
+            top: -10px;
+            left: 0;
+            height: 25px;
+            width: 25px;
+            background-color: #fff;
+            border: 0.3rem solid rgba(224, 224, 224, 1);
+            border-radius: 75%;
+        }
+
+        /* On mouse-over, add a grey background color */
+        .containers:hover input~.checkmark {
+            background-color: $white;
+        }
+
+        /* When the checkbox is checked, add a blue background */
+        .containers input:checked~.checkmark {
+            background-color: rgba(22, 134, 252, 1);
+            border: transparent;
+        }
+
+        /* Create the checkmark/indicator (hidden when not checked) */
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        /* Show the checkmark when checked */
+        .containers input:checked~.checkmark:after {
+            display: block;
+        }
+
+        /* Style the checkmark/indicator */
+        .containers .checkmark:after {
+            left: 9px;
+            top: 4px;
+            width: 8px;
+            height: 15px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+    }
+
+
+    
+    .bottom {
+        background-color: #fff;
+        z-index: 111;
+        margin-top: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 -4px 10px 0 rgba(239, 241, 242, 1);
+        width: 100%;
+        height: 7rem;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 0 4rem;
+
+        .back_btn {
+            border: .1rem solid $black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            line-height: 2.1rem;
+            font-weight: 500;
+            width: 12rem;
+            min-width: 15rem;
+            height: 4rem;
+            border-radius: 4rem;
+            color: $black;
+
+            i {
+                color: $black;
+                margin-right: 1.2rem;
+                font-size: 1.2rem;
+            }
+        }
+
+        .next_btn {
+            max-width: 12rem;
+            width: 100%;
+            height: 4rem;
+            color: $white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4rem;
+            border: .1rem solid transparent;
+            font-size: 1.6rem;
+            line-height: 2.1rem;
+            font-weight: 500;
+            margin: initial;
+
+
+            i {
+                font-size: 1.2rem;
+                margin-left: 1.2rem;
+            }
+
+        }
+    }
+    
+}

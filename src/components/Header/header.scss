@@ -1,0 +1,30 @@
+@import "../../Styles/variables/variables.scss";
+
+#header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 7rem;
+    padding: 0 2.5rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    background-color: #fff;
+    h1{
+        color: $primary_color;
+        letter-spacing: 3px;
+        // margin-bottom: 4rem;
+    }
+    .profile{
+        height: 4rem;
+        min-width: 4rem;
+        width: 4rem;
+        border-radius: 75%;
+        border: .1rem solid hsla(240,7%,62%,1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        i{
+            color: darkgray;
+        }
+    }
+}
