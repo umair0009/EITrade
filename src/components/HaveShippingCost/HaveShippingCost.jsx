@@ -11,10 +11,11 @@ const HaveShippingCost = () => {
               <h2>Select Choice</h2>
               <div className='inner'>
                   <label className='mb-2'>Do You Have Shipping cost</label>
-                  <select className='country_select' placeholder='Do you have shipping cost?'>
-                      <option>Yes</option>
-                      <option>No</option>
-                  </select>
+          <div className='btn_blk'>
+            <button type='button' className='have_cost'>Yes</button>
+            <button type='button' className='have_cost'>No</button>
+            
+                 </div>
              
               </div>
               <div className="bottom">
