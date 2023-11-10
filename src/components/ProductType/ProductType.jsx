@@ -19,7 +19,7 @@ const ProductType = ({getImportType}) => {
 
         <h4>Select Import Type</h4>
           <div className="inner">
-            {/*<Link to="/import/select-product">*/}
+            <a href="#">
               <div onClick={()=>{
                 getImportType('IOP')
               }} className="img_blk">
@@ -28,7 +28,7 @@ const ProductType = ({getImportType}) => {
               <p className="product_img">
                 Image of Product
               </p>
-            {/*</Link>*/}
+            </a>
             <a>
             <div onClick={()=>{
                 getImportType('HC')
