@@ -22,8 +22,8 @@ const Import = () => {
             <section id='import'>
                 {data===undefined?
                 <Home onSelect={onSelectValue}
-                />:null}
-
+                />:(
+                <>
                 {data?.isImport&&!data?.importThrough?
                     <ImportThrough getSelection={(value)=>{
 
@@ -38,7 +38,7 @@ const Import = () => {
                     }}/>:null
                 }
 
-                {data?.isImport&&data?.importThrough?.value==='COI'&&!data?.importThrough?.importType?
+                {data?.isImport&&(data?.importThrough?.value==='COI'&&!data?.importThrough?.importType)?
                     <ProductType getImportType={(value)=>{
                         let temp = {
                             ...data?.importThrough,
@@ -49,10 +49,15 @@ const Import = () => {
                             importThrough:temp
                         }
                         setData(obj)
-                    }} />: <SelectProduct/>
+                    }} />: null
+
+                }
+                {data?.isImport&&data?.importThrough?.value==='COI'&&data?.importThrough?.importType?
+
+                    <SelectProduct />:null
                 }
 
-
+                </>)}
 
 
             </section>

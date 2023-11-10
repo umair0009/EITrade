@@ -2,8 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import uploadimage from "../../assets/images/uploadimage.png";
 import "./SelectProduct.scss";
-const SelectProduct = () => {
+const SelectProduct = ({onDataUpload}) => {
   const colorCode = "#1686F6";
+
+  const uploadData = () => {
+    onDataUpload()
+  }
+
 
   return (
     <>
