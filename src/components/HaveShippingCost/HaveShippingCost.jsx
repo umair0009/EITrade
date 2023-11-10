@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import "./HaveShippingCost.scss";
 
-const HaveShippingCost = () => {
+const HaveShippingCost = ({onSelection}) => {
   const colorCode = "#1686F6";
 
   return (
@@ -12,11 +12,15 @@ const HaveShippingCost = () => {
               <div className='inner'>
                   <label className='mb-2'>Do You Have Shipping cost</label>
           <div className='btn_blk'>
-            <button type='button' className='have_cost'>Yes</button>
-            <button type='button' className='have_cost'>No</button>
-            
+            <button onClick={()=>{
+                onSelection(true)
+            }} type='button' className='have_cost'>Yes</button>
+            <button onClick={()=>{
+                onSelection(false)
+            }} type='button' className='have_cost'>No</button>
+
                  </div>
-             
+
               </div>
               <div className="bottom">
             <Link
@@ -46,7 +50,7 @@ const HaveShippingCost = () => {
               <i class="fa-solid fa-arrow-right"></i>
             </Link>
           </div>
-          
+
         </section>
       </>
   )

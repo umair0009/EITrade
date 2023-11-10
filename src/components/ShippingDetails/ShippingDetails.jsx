@@ -1,9 +1,25 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import "./ShippingDetails.scss";
 
-const ShippingDetails = () => {
+const ShippingDetails = ({onSubmit}) => {
   const colorCode = "#1686F6";
+
+  const [quantity,setQuantity] = useState(1)
+  const [unitPrice,setUnitPrice] = useState(1)
+  const [shippingCost,setShippingCost] = useState(1)
+
+
+  const onHandleClick = () =>{
+
+    let  obj={
+      quantity:quantity,
+      unitPrice:unitPrice,
+      shippingCost:shippingCost,
+      result:unitPrice*shippingCost,
+    }
+      onSubmit(obj)
+  }
 
   return (
     <>
@@ -13,7 +29,7 @@ const ShippingDetails = () => {
           <form>
             <h4>Enter Product Details</h4>
             <div className="row">
-             
+
               <div className="col-md-6">
                 <label>Quantity</label>
 
@@ -28,9 +44,9 @@ const ShippingDetails = () => {
                 </div>
                           </div>
                           <div className="col-md-6">
-                              
+
                           </div>
-              
+
               <div className="col-md-6">
                 <label>Unit value of PCS</label>
                 <div className="input_blk">
@@ -45,7 +61,7 @@ const ShippingDetails = () => {
               </div>
             </div>
           </form>
-         
+
               </div>
               <div className="bottom">
             <a
@@ -65,16 +81,15 @@ const ShippingDetails = () => {
               ></i>
               Back
             </a>
-            <Link
-              to="/import/result"
-            //   href="#"
+            <button
+              onClick={onHandleClick}
               type="button"
               className="next_btn"
               style={{ backgroundColor: colorCode }}
             >
               Next
               <i class="fa-solid fa-arrow-right"></i>
-            </Link>
+            </button>
           </div>
       </section>
     </>

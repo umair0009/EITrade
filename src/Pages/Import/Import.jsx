@@ -4,6 +4,7 @@ import ImportThrough from "../../components/ImportThrough/ImportThrough";
 import ProductType from "../../components/ProductType/ProductType";
 import SelectProduct from "../../components/SelectProduct/SelectProduct";
 import HaveShippingCost from "../../components/HaveShippingCost/HaveShippingCost";
+import ShippingCost from "../ShippingCost/ShippingCost";
 
 const Import = () => {
     const [data, setData] = useState(undefined)
@@ -79,10 +80,11 @@ const Import = () => {
                             {data?.isImport &&
                             (data?.importThrough?.value === 'COI' && data?.importThrough?.importType&&data?.importThrough?.uploadImageData) ?
 
-                                <HaveShippingCost
+                                <ShippingCost
+                                    data={data}
                                     onDataUpload={(obj) => {
 
-
+                                        setData(undefined)
 
                                     }}/> : null
                             }

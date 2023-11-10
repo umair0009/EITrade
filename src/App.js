@@ -145,7 +145,7 @@ function App() {
         </Layout> */}
 
       {/* <Layout>
-          <HaveShippingCost />
+
         </Layout> */}
       {/* <Layout>
           <ShippingDetails />
