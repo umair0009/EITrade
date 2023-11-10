@@ -5,8 +5,13 @@ import "./SelectProduct.scss";
 const SelectProduct = ({onDataUpload}) => {
   const colorCode = "#1686F6";
 
-  const uploadData = () => {
-    onDataUpload()
+  const   uploadData = () => {
+    let obj = {
+      image:"url",
+      country:"US",
+      currency:"USD"
+    }
+    onDataUpload(obj)
   }
 
 
@@ -67,16 +72,16 @@ const SelectProduct = ({onDataUpload}) => {
               ></i>
               Back
             </a>
-            <Link
-              to="/import/shipping-cost"
-            //   href="#"
+            <button
+                onClick={uploadData}
+
               type="button"
               className="next_btn"
               style={{ backgroundColor: colorCode }}
             >
               Next
               <i class="fa-solid fa-arrow-right"></i>
-            </Link>
+            </button>
           </div>
         </div>
       </section>
