@@ -12,20 +12,13 @@ const TypeOfCargo = () => {
         <div className="site_container">
           <div className="inner">
             <h2>Select Type of Cargo</h2>
+
             <div className="label_blk">
-              <h5>Groupage</h5>
-              <label class="containers">
-                <input type="radio" name="gender" value="men" />
-                <span class="checkmark"></span>
-              </label>
+              <button type="button" className="packing_type">Groupage</button>
+            <button type="button" className="packing_type">Conteneur</button>
+              
             </div>
-            <div className="label_blk">
-              <h5>Conteneur</h5>
-              <label class="containers">
-                <input type="radio" name="gender" value="men" />
-                <span class="checkmark"></span>
-              </label>
-            </div>
+         
           </div>
         </div>
         <div className="bottom">
