@@ -72,11 +72,6 @@ const Import = () => {
                                     }}/> : null
                             }
 
-
-
-
-
-
                             {data?.isImport &&
                             (data?.importThrough?.value === 'COI' && data?.importThrough?.importType&&data?.importThrough?.uploadImageData) ?
 

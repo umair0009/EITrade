@@ -2,42 +2,57 @@ import React, {useEffect, useState} from 'react'
 import HaveShippingCost from "../../components/HaveShippingCost/HaveShippingCost";
 import ShippingDetails from "../../components/ShippingDetails/ShippingDetails";
 import ShippingResult from "../../components/ShippingResult/ShippingResult";
-import NotHaveShippingCost from "./NotHaveShippingCost";
+import ShippingType from "../../components/NotHaveShippingCost/ShippingType/ShippingType";
+import TypeOfPacking from "../../components/NotHaveShippingCost/ByAir/TypeOfPacking/TypeOfPacking";
+import TypeOfCargo from "../../components/NotHaveShippingCost/BySea/TypeOfCargo/TypeOfCargo";
 
-const ShippingCost = ({data,onDataUpload}) => {
+const NotHaveShippingCost = ({data,onSubmit}) => {
     const [shippingData, setShippingData] = useState(undefined)
 
 
     useEffect(() => {
         console.log(data)
     }, []);
+
+
+
     return (
         <>
 
-            {shippingData?.haveShippingCost === undefined ?
-                <HaveShippingCost
+            {shippingData?.ShippingType === undefined ?
+                <ShippingType
                     onSelection={(value) => {
                         let obj = {
-                            haveShippingCost: value
+                            ShippingType: value
                         }
                         setShippingData(obj)
 
                     }}/> : null
             }
 
-            {shippingData?.haveShippingCost===true && !shippingData?.shippingDetail ?
-                <ShippingDetails onSubmit={(data) => {
+            {shippingData?.ShippingType==="BY_AIR"?
+                <TypeOfPacking onSubmit={(data) => {
                     let obj = {
                         ...shippingData,
                         shippingDetail: data
                     }
                     setShippingData(obj)
-                }}/> : null
+                }}/> :
+
+                <TypeOfCargo onSubmit={(data) => {
+                    let obj = {
+                        ...shippingData,
+                        shippingDetail: data
+                    }
+                    setShippingData(obj)
+                }}/>
+
+
             }
 
 
             {shippingData?.haveShippingCost===false && !shippingData?.shippingDetail ?
-                <NotHaveShippingCost onSubmit={(data) => {
+                <ShippingDetails onSubmit={(data) => {
                     let obj = {
                         ...shippingData,
                         shippingDetail: data
@@ -49,7 +64,7 @@ const ShippingCost = ({data,onDataUpload}) => {
             {shippingData?.haveShippingCost && shippingData?.shippingDetail ?
                 <ShippingResult
                     onDownloadPDF={() => {
-                        onDataUpload()
+                        onSubmit()
                     }} data={shippingData}/> : null
             }
 
@@ -58,4 +73,4 @@ const ShippingCost = ({data,onDataUpload}) => {
     )
 }
 
-export default ShippingCost
+export default NotHaveShippingCost

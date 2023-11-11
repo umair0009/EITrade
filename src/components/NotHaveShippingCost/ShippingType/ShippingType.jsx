@@ -1,12 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 
 import bysea from "../../../assets/images/bysea.png";
 import byair from "../../../assets/images/byair.jpg";
 
 import "./ShippingType.scss";
-const ShippingType = () => {
+const ShippingType = ({onSelection}) => {
   const colorCode = "#1686F6";
+  const [shippingType, setShippingType] = useState("")
 
   return (
     <>
@@ -14,11 +15,14 @@ const ShippingType = () => {
         <h2>Type of Shipping</h2>
         <div className="inner1">
           <div className="card_blk">
-            <div className="card">
+            <div onClick={()=>{
+              onSelection("BY_AIR")
+              setShippingType("BY_AIR")
+            }} className="card">
               <div className="checkbox">
                 <h5>By Air</h5>
                 <label class="containers">
-                  <input type="radio" name="gender" value="men" />
+                  <input checked={shippingType==='BY_AIR'} type="radio" name="gender" value="men" />
                   <span class="checkmark"></span>
                 </label>
               </div>
@@ -28,12 +32,15 @@ const ShippingType = () => {
                 </div>
               </div>
             </div>
-            <Link to="/import/by-sea/cargo-type">
-              <div className="card">
-                <div className="checkbox">
+            {/*<Link to="/import/by-sea/cargo-type">*/}
+              <div onClick={()=>{
+                onSelection("BY_SEA")
+                setShippingType("BY_SEA")
+              }} className="card">
+                <div  className="checkbox">
                   <h5>By Sea</h5>
                   <label class="containers">
-                    <input type="radio" name="gender" value="women" />
+                    <input checked={shippingType==='BY_AIR'} type="radio" name="gender" value="women" />
                     <span class="checkmark"></span>
                   </label>
                 </div>
@@ -43,7 +50,7 @@ const ShippingType = () => {
                   </div>
                 </div>
               </div>
-            </Link>
+            {/*</Link>*/}
           </div>
         </div>
         <div className="bottom">
