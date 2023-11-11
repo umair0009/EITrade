@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./TypeOfPacking.scss";
 
-const TypeOfPacking = () => {
+const TypeOfPacking = ({onSelection}) => {
   const colorCode = "#1686F6";
 
   return (
@@ -12,13 +12,17 @@ const TypeOfPacking = () => {
         <div className="site_container">
           <div className="inner">
             <h2>Select Type of Packing</h2>
-            
+
             <div className="label_blk">
-              <button type="button" className="packing_type">Carton</button>
-            <button type="button" className="packing_type">Pallet</button>
-              
+              <button onClick={()=>{
+                onSelection("CARTON")
+              }} type="button" className="packing_type">Carton</button>
+            <button onClick={()=>{
+              onSelection("PALLET")
+            }} type="button" className="packing_type">Pallet</button>
+
             </div>
-           
+
           </div>
         </div>
         <div className="bottom">

@@ -1,8 +1,14 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import "./CartonDetails.scss";
-const CartonDetails = () => {
+const CartonDetails = ({onSubmit}) => {
   const colorCode = "#1686F6";
+
+  const [numOfCarton,setNumOfCarton] = useState("")
+  const [weightOfCarton,setWeightOfCarton] = useState("")
+  const [height,setHeight] = useState("")
+  const [width,setWidth] = useState("")
+  const [length,setLength] = useState("")
 
   return (
     <>
@@ -70,7 +76,19 @@ const CartonDetails = () => {
             <i class="fa-solid fa-arrow-left" style={{ color: colorCode }}></i>
             Back
           </Link>
-          <Link
+          <button
+              onClick={()=>{
+                let obj={
+                  numOfCarton,
+                  weightOfCarton,
+                  height,
+                  width,
+                  length
+
+
+                }
+                onSubmit(obj)
+              }}
             // to={routes.form.question3}
             to="/import/carton-details"
             type="button"
@@ -79,7 +97,7 @@ const CartonDetails = () => {
           >
             Next
             <i class="fa-solid fa-arrow-right"></i>
-          </Link>
+          </button>
         </div>
       </section>
     </>

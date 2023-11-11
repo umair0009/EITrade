@@ -38,11 +38,7 @@ const ShippingCost = ({data,onDataUpload}) => {
 
             {shippingData?.haveShippingCost===false && !shippingData?.shippingDetail ?
                 <NotHaveShippingCost onSubmit={(data) => {
-                    let obj = {
-                        ...shippingData,
-                        shippingDetail: data
-                    }
-                    setShippingData(obj)
+                    onDataUpload()
                 }}/> : null
             }
 
