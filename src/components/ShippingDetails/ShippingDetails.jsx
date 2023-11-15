@@ -34,13 +34,7 @@ const ShippingDetails = ({onSubmit}) => {
                 <label>Quantity</label>
 
                 <div className="input_blk">
-                  <select className="select_blk" placeholder="select Quantity">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
+                 <input type="number" placeholder="e.g 22" />
                 </div>
                           </div>
                           <div className="col-md-6">

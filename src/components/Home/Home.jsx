@@ -44,7 +44,7 @@ const Home = ({onSelect}) => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="card">
+                            <div className="card disabled">
                                 <div className="checkbox">
                                     <h5>Export</h5>
                                     <label onClick={() => {

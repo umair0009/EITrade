@@ -1,38 +1,24 @@
-// import React from 'react'
-// import { GoogleLogin,GoogleOAuthProvider } from '@react-oauth/google';
+import React from 'react'
 
-// import "./Signup.scss";
+import "./Signup.scss";
 
 
-// const Signup = () => {
-//   return (
-//       <>
-//       <section id="signup">
+const Signup = () => {
+  return (
+      <>
+      <section id="signup">
        
-//             <div className="signup_blk">
-//               <h2>Sign Up</h2>
-
-//               <GoogleOAuthProvider>
-              
-//               <GoogleLogin
-//   onSuccess={credentialResponse => {
-//     console.log(credentialResponse);
-//   }}
-//   onError={() => {
-//     console.log('Login Failed');
-//   }}
-//   useOneTap
-// />;
-//               </GoogleOAuthProvider>;
+            <div className="signup_blk">
+              <h2>Sign Up</h2>
 
 
 
-//             </div>
+            </div>
         
       
-//       </section>
-//       </>
-//   )
-// }
+      </section>
+      </>
+  )
+}
 
-// export default Signup;
+export default Signup;

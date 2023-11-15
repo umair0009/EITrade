@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.7",
     "@stripe/react-stripe-js": "^2.1.0",
     "@stripe/stripe-js": "^1.52.1",
     "@testing-library/jest-dom": "^5.16.5",
@@ -14,6 +15,7 @@
     "draft-js-export-html": "^1.4.1",
     "draftjs-to-html": "^0.9.1",
     "gapi-script": "^1.2.0",
+    "google-auth-library": "^9.2.0",
     "localforage": "^1.10.0",
     "moment": "^2.29.4",
     "primereact": "^9.3.1",
