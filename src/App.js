@@ -21,18 +21,20 @@ import TypeOfPacking from "./components/NotHaveShippingCost/ByAir/TypeOfPacking/
 import CartonDetails from "./components/NotHaveShippingCost/ByAir/CartonDetails/CartonDetails";
 import TypeOfCargo from "./components/NotHaveShippingCost/BySea/TypeOfCargo/TypeOfCargo";
 import Import from "./Pages/Import/Import";
+import {GoogleOAuthProvider} from "@react-oauth/google";
 
 function App() {
   return (
-    <>
+      <GoogleOAuthProvider clientId="472221087033-qpju7u0ja06dqv16qtlt1o8r58cb89r7.apps.googleusercontent.com">
+
       <Routes>
 
       <Route
           path="login"
           element={
-         
+
                 <Login />
-           
+
           }
         />
 
@@ -163,7 +165,7 @@ function App() {
       {/* <Layout>
           <ShippingResult />
         </Layout> */}
-    </>
+      </GoogleOAuthProvider>
   );
 }
 

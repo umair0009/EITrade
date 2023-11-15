@@ -1,10 +1,60 @@
 import axios from 'axios';
 
+class RestApi {
 
-const instance = axios.create({
-    baseURL: 'https://some-domain.com/api/',
-    timeout: 1000,
-    headers: {'X-Custom-Header': 'foobar'}
-});
-  
-export default instance
+    instance = null
+    instanceFormData = null
+
+    constructor() {
+        this.instance = axios.create({
+            baseURL: ``,
+            timeout: 50000,
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        });
+
+        this.instanceFormData = axios.create({
+            baseURL: ``,
+            timeout: 50000,
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'multipart/form-data'
+            }
+        });
+    }
+
+
+    static getInstance() {
+        if (this.instance == null) {
+            this.instance = axios.create({
+                baseURL: ``,
+                timeout: 50000,
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            });
+        }
+        return this.instance
+    }
+
+    static getInstanceFormData() {
+        if (this.instanceFormData == null) {
+            this.instanceFormData = axios.create({
+                baseURL: ``,
+                timeout: 50000,
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+        }
+        return this.instanceFormData
+    }
+
+}
+
+
+export default RestApi

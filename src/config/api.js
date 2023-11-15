@@ -1,4 +1,6 @@
 const api = {
+
+    base_url:"",
     auth: {
         login: ''
     },
