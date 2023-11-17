@@ -1,4 +1,5 @@
 import axios from 'axios';
+import api from '../config/api';
 
 class RestApi {
 
@@ -7,7 +8,7 @@ class RestApi {
 
     constructor() {
         this.instance = axios.create({
-            baseURL: ``,
+            baseURL: api.base_url,
             timeout: 50000,
             headers: {
                 'Accept': 'application/json',
@@ -16,7 +17,7 @@ class RestApi {
         });
 
         this.instanceFormData = axios.create({
-            baseURL: ``,
+            baseURL:api.base_url,
             timeout: 50000,
             headers: {
                 'Accept': 'application/json',
@@ -29,7 +30,7 @@ class RestApi {
     static getInstance() {
         if (this.instance == null) {
             this.instance = axios.create({
-                baseURL: ``,
+                baseURL: api.base_url,
                 timeout: 50000,
                 headers: {
                     'Accept': 'application/json',
@@ -43,11 +44,11 @@ class RestApi {
     static getInstanceFormData() {
         if (this.instanceFormData == null) {
             this.instanceFormData = axios.create({
-                baseURL: ``,
+                baseURL: api.base_url,
                 timeout: 50000,
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'multipart/form-data'
+                    'Content-Type': 'multipart/form-data',
                 }
             });
         }

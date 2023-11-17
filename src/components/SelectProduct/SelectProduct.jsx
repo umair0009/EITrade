@@ -1,17 +1,31 @@
-import React from "react";
+import React,{useState} from "react";
+import { useSelector,useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import uploadimage from "../../assets/images/uploadimage.png";
+import { uploadImage } from "../../Redux/user/Operations";
 import "./SelectProduct.scss";
-const SelectProduct = ({onDataUpload}) => {
-  const colorCode = "#1686F6";
 
-  const   uploadData = () => {
-    let obj = {
-      image:"url",
-      country:"US",
-      currency:"USD"
-    }
-    onDataUpload(obj)
+              
+const SelectProduct = ({data,onDataUpload}) => {
+  const colorCode = "#1686F6";
+  const dispatch = useDispatch()
+  const accessToken = useSelector(state=>state.user.accessToken)
+  const [file, setFile] = useState(undefined);
+
+
+
+  const uploadData = (value) => {
+  
+
+
+    dispatch(uploadImage(accessToken, value)).then((data) => {
+      if (data) {
+        console.log(data);
+      }
+    }).catch(err => {
+      console.log(err);
+    })
+    
   }
 
 
@@ -26,7 +40,15 @@ const SelectProduct = ({onDataUpload}) => {
 
               <div class="upload-btn-wrapper">
                 <button class="btn">Upload a file</button>
-                <input type="file" name="myfile" />
+                <input onChange={(event => {
+                  let obj = {
+                    name: event.target.files[0].name,
+                    type:event.target.files[0].type
+                  }
+                  console.log(obj);
+                  setFile(event.target.files[0])
+                  uploadData(event.target.files[0])
+                })} type="file" name="myfile" />
               </div>
 
               <span className="file_name">No File uploaded</span>

@@ -57,6 +57,7 @@ const Import = () => {
                             (data?.importThrough?.value === 'COI' && data?.importThrough?.importType&&!data?.importThrough?.uploadImageData) ?
 
                                 <SelectProduct
+                                    data={data}
                                     onDataUpload={(value) => {
 
                                         let temp = {

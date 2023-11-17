@@ -1,5 +1,5 @@
 import routes from "./config/routes";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import "../src/Styles/Style.scss";
 
 import Login from "./components/Auth/Login/Login";
@@ -22,33 +22,34 @@ import CartonDetails from "./components/NotHaveShippingCost/ByAir/CartonDetails/
 import TypeOfCargo from "./components/NotHaveShippingCost/BySea/TypeOfCargo/TypeOfCargo";
 import Import from "./Pages/Import/Import";
 import {GoogleOAuthProvider} from "@react-oauth/google";
+import { useSelector } from "react-redux";
+import { Redirect } from "react-router";
+import RequireAuth from "./components/Auth/RequireAuth/RequireAuth";
 
-function App() {
+function App() { 
+  const accessToken = useSelector(state=>state.user.accessToken)
   return (
-      <GoogleOAuthProvider clientId="472221087033-qpju7u0ja06dqv16qtlt1o8r58cb89r7.apps.googleusercontent.com">
+      <GoogleOAuthProvider clientId="830747892308-16lkk63p9opq3fc6eqi4lntth6ti85ak.apps.googleusercontent.com">
+
+      
 
       <Routes>
+        <Route path="/login" element={<Login />} />
 
-      <Route
-          path="login"
-          element={
+       
 
-                <Login />
-
-          }
-        />
-
+       
         <Route
-          path="/"
-          element={
-            <Layout>
-                <Import/>
-              {/*<Home />*/}
-            </Layout>
-          }
-        />
-        <Route path="welcome" element={<Welcome />} />
-        <Route
+            path="/"
+            element={
+              <RequireAuth children={<Import/>}/>
+            }
+          />
+
+        {/* <Route path="*" element={<div>Not Found</div>} /> */}
+      
+        {/* <Route path="welcome" element={<Welcome />} /> */}
+        {/* <Route
           path="/import/import-through"
           element={
             <Layout>
@@ -138,7 +139,7 @@ function App() {
               <TypeOfCargo />
             </Layout>
           }
-        ></Route>
+        ></Route> */}
       </Routes>
 
       {/* <Login /> */}
