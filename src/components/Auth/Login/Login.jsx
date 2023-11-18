@@ -12,35 +12,34 @@ const Login = () => {
 
     const dispatch = useDispatch()
     const accessToken = useSelector(state => state.user.accessToken)
-    
+
 
     useEffect(() => {
-        
+
+        // dispatch(saveAccessToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAwNTA0NDE0LCJpYXQiOjE3MDAyNDUyMTQsImp0aSI6IjQ2MWIyNTU0YjA3ZDRiZjg5MWU5ZGRiYzMyYzMyMzE4IiwidXNlcl9pZCI6MX0.EZep-TBMHes9p0P4lgTMYhFxUBcDWWwhAKSCMDT_yAA"))
+        setTimeout(()=>{
+            // alert(accessToken)
+        },1000)
+
+
+
         googleLogout()
     },[])
 
 
 
+    const dummy = () =>{
+
+
+        dispatch(saveAccessToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAwNTA0NDE0LCJpYXQiOjE3MDAyNDUyMTQsImp0aSI6IjQ2MWIyNTU0YjA3ZDRiZjg5MWU5ZGRiYzMyYzMyMzE4IiwidXNlcl9pZCI6MX0.EZep-TBMHes9p0P4lgTMYhFxUBcDWWwhAKSCMDT_yAA"))
+
+    }
+
 
     const googleLogin = useGoogleLogin({
-        onSuccess: async tokenResponse => {
-
-                console.log(tokenResponse);
-                // fetching userinfo can be done on the client or the server
-               
+        onSuccess:  tokenResponse => {
 
 
-                const userInfo = await axios
-                .get('https://www.googleapis.com/oauth2/v3/userinfo', {
-                  headers: { Authorization: `Bearer ${tokenResponse.access_token}` },
-                })
-                .then(res => res.data);
-        
-              console.log(userInfo);
-              
-
-
-            return
 
             let obj = {
                 code : tokenResponse.access_token
@@ -66,7 +65,7 @@ const Login = () => {
             <section id="login">
 
                 <div className="login_blk">
-                    <h2 onClick={googleLogin}>Sign In</h2>
+                    <h2 onClick={dummy}>Sign In</h2>
 
                     {/*<GoogleLogin*/}
                     {/*    auto_select*/}

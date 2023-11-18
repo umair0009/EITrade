@@ -1,5 +1,5 @@
 import routes from "./config/routes";
-import { Routes, Route, Navigate } from "react-router-dom";
+import {Routes, Route, Navigate} from "react-router-dom";
 import "../src/Styles/Style.scss";
 
 import Login from "./components/Auth/Login/Login";
@@ -22,34 +22,40 @@ import CartonDetails from "./components/NotHaveShippingCost/ByAir/CartonDetails/
 import TypeOfCargo from "./components/NotHaveShippingCost/BySea/TypeOfCargo/TypeOfCargo";
 import Import from "./Pages/Import/Import";
 import {GoogleOAuthProvider} from "@react-oauth/google";
-import { useSelector } from "react-redux";
-import { Redirect } from "react-router";
+import {useSelector} from "react-redux";
+import {Redirect} from "react-router";
 import RequireAuth from "./components/Auth/RequireAuth/RequireAuth";
+import NotRequireAuth from "./components/Auth/RequireAuth/NotRequireAuth";
 
-function App() { 
-  const accessToken = useSelector(state=>state.user.accessToken)
-  return (
-      <GoogleOAuthProvider clientId="830747892308-16lkk63p9opq3fc6eqi4lntth6ti85ak.apps.googleusercontent.com">
+function App() {
+    const accessToken = useSelector(state => state.user.accessToken)
+    return (
+        <GoogleOAuthProvider clientId="830747892308-16lkk63p9opq3fc6eqi4lntth6ti85ak.apps.googleusercontent.com">
 
-      
 
-      <Routes>
-        <Route path="/login" element={<Login />} />
+            <Routes>
+                <Route
+                    path="/login"
+                    element={
+                        <NotRequireAuth>
+                            <Login/>
+                        </NotRequireAuth>
+                    }/>
 
-       
 
-       
-        <Route
-            path="/"
-            element={
-              <RequireAuth children={<Import/>}/>
-            }
-          />
+                <Route
+                    path="/"
+                    element={
+                        <RequireAuth>
+                            <Import/>
+                        </RequireAuth>
+                    }
+                />
 
-        {/* <Route path="*" element={<div>Not Found</div>} /> */}
-      
-        {/* <Route path="welcome" element={<Welcome />} /> */}
-        {/* <Route
+                {/* <Route path="*" element={<div>Not Found</div>} /> */}
+
+                {/* <Route path="welcome" element={<Welcome />} /> */}
+                {/* <Route
           path="/import/import-through"
           element={
             <Layout>
@@ -140,34 +146,34 @@ function App() {
             </Layout>
           }
         ></Route> */}
-      </Routes>
+            </Routes>
 
-      {/* <Login /> */}
-      {/* <Signup /> */}
+            {/* <Login /> */}
+            {/* <Signup /> */}
 
-      {/* <Layout>
+            {/* <Layout>
           <Home />
         </Layout> */}
 
-      {/* <Layout>
+            {/* <Layout>
           <ProductType />
         </Layout> */}
 
-      {/* <Layout>
+            {/* <Layout>
           <SelectProduct />
         </Layout> */}
 
-      {/* <Layout>
+            {/* <Layout>
 
         </Layout> */}
-      {/* <Layout>
+            {/* <Layout>
           <ShippingDetails />
         </Layout> */}
-      {/* <Layout>
+            {/* <Layout>
           <ShippingResult />
         </Layout> */}
-      </GoogleOAuthProvider>
-  );
+        </GoogleOAuthProvider>
+    );
 }
 
 export default App;
