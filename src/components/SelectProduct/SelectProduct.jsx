@@ -1,33 +1,27 @@
-import React,{useState} from "react";
-import { useSelector,useDispatch } from "react-redux";
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import uploadimage from "../../assets/images/uploadimage.png";
 import { uploadImage } from "../../Redux/user/Operations";
 import "./SelectProduct.scss";
 
-              
-const SelectProduct = ({data,onDataUpload}) => {
+const SelectProduct = ({ data, onDataUpload }) => {
   const colorCode = "#1686F6";
-  const dispatch = useDispatch()
-  const accessToken = useSelector(state=>state.user.accessToken)
+  const dispatch = useDispatch();
+  const accessToken = useSelector((state) => state.user.accessToken);
   const [file, setFile] = useState(undefined);
 
-
-
   const uploadData = (value) => {
-  
-
-
-    dispatch(uploadImage(accessToken, value)).then((data) => {
-      if (data) {
-        console.log(data);
-      }
-    }).catch(err => {
-      console.log(err);
-    })
-    
-  }
-
+    dispatch(uploadImage(accessToken, value))
+      .then((data) => {
+        if (data) {
+          console.log(data);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <>
@@ -40,19 +34,55 @@ const SelectProduct = ({data,onDataUpload}) => {
 
               <div class="upload-btn-wrapper">
                 <button class="btn">Upload a file</button>
-                <input onChange={(event => {
-                  let obj = {
-                    name: event.target.files[0].name,
-                    type:event.target.files[0].type
-                  }
-                  console.log(obj);
-                  setFile(event.target.files[0])
-                  uploadData(event.target.files[0])
-                })} type="file" name="myfile" />
+                <input
+                  onChange={(event) => {
+                    let obj = {
+                      name: event.target.files[0].name,
+                      type: event.target.files[0].type,
+                    };
+                    console.log(obj);
+                    setFile(event.target.files[0]);
+                    uploadData(event.target.files[0]);
+                  }}
+                  type="file"
+                  name="myfile"
+                />
               </div>
-
-              <span className="file_name">No File uploaded</span>
+              <span className="file_name">No File Upload</span>
             </div>
+            {/* for description text area will be visible */}
+            {/* <label htmlFor="">Enter Description</label>
+            <div className="input_blk">
+                  <textarea />
+            </div> */}
+            {/* for description text area will be visible */}
+
+            <div className="image_to_text">
+                <div className="checkbox">
+                  <label
+                    class="containers"
+                  >
+                    <input
+                      type="radio"
+                      name="import"
+                      />
+                    <span class="checkmark"></span>
+                  </label>
+                      <h6>Text 1</h6>
+              </div>
+              <div className="checkbox">
+                  <label
+                    class="containers"
+                  >
+                    <input
+                      type="radio"
+                      name="import"
+                      />
+                    <span class="checkmark"></span>
+                  </label>
+                      <h6>Text 2</h6>
+                </div>
+              </div>
 
             <div className="select">
               <div className="input_blk">
@@ -95,8 +125,7 @@ const SelectProduct = ({data,onDataUpload}) => {
               Back
             </a>
             <button
-                onClick={uploadData}
-
+              onClick={uploadData}
               type="button"
               className="next_btn"
               style={{ backgroundColor: colorCode }}

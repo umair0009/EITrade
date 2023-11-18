@@ -1,4 +1,3 @@
-import routes from "./config/routes";
 import { Routes, Route, Navigate } from "react-router-dom";
 import "../src/Styles/Style.scss";
 
@@ -11,7 +10,6 @@ import ProductType from "./components/ProductType/ProductType";
 import SelectProduct from "./components/SelectProduct/SelectProduct";
 import ShippingDetails from "./components/ShippingDetails/ShippingDetails";
 import ShippingResult from "./components/ShippingResult/ShippingResult";
-import Welcome from "./components/Welcome/Welcome";
 // import routes from "./config/routes";
 
 import Layout from "./Layout/Layout";
@@ -21,33 +19,22 @@ import TypeOfPacking from "./components/NotHaveShippingCost/ByAir/TypeOfPacking/
 import CartonDetails from "./components/NotHaveShippingCost/ByAir/CartonDetails/CartonDetails";
 import TypeOfCargo from "./components/NotHaveShippingCost/BySea/TypeOfCargo/TypeOfCargo";
 import Import from "./Pages/Import/Import";
-import {GoogleOAuthProvider} from "@react-oauth/google";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router";
 import RequireAuth from "./components/Auth/RequireAuth/RequireAuth";
 
-function App() { 
-  const accessToken = useSelector(state=>state.user.accessToken)
+function App() {
+  const accessToken = useSelector((state) => state.user.accessToken);
   return (
-      <GoogleOAuthProvider clientId="830747892308-16lkk63p9opq3fc6eqi4lntth6ti85ak.apps.googleusercontent.com">
-
-      
-
+    <GoogleOAuthProvider clientId="830747892308-16lkk63p9opq3fc6eqi4lntth6ti85ak.apps.googleusercontent.com">
       <Routes>
         <Route path="/login" element={<Login />} />
 
-       
-
-       
-        <Route
-            path="/"
-            element={
-              <RequireAuth children={<Import/>}/>
-            }
-          />
+        <Route path="/import" element={<Import />} />
 
         {/* <Route path="*" element={<div>Not Found</div>} /> */}
-      
+
         {/* <Route path="welcome" element={<Welcome />} /> */}
         {/* <Route
           path="/import/import-through"
@@ -166,7 +153,7 @@ function App() {
       {/* <Layout>
           <ShippingResult />
         </Layout> */}
-      </GoogleOAuthProvider>
+    </GoogleOAuthProvider>
   );
 }
 
